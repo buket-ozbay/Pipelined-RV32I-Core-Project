@@ -1,6 +1,6 @@
-# Pipelined RV32I Processor Project
+# Pipelined RV32I Core Project
 
-This project implements a **5-stage pipelined** RISC-V **RV32I** processor, featuring hazard handling.
+This project implements a **5-stage pipelined** RISC-V **RV32I** core, featuring hazard handling.
 
 **Author**: Buket Özbay  
 **Email**: ozbayb21@itu.edu.tr
@@ -9,7 +9,7 @@ This project implements a **5-stage pipelined** RISC-V **RV32I** processor, feat
 
 ## Overview
 
-This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processor with robust **hazard handling**. The design correctly handles all integer instructions in the RV32I base instruction set with no stalling.
+This project aims to implement a **5-stage pipelined** RISC-V **RV32I** core with robust **hazard handling**. The design correctly handles all integer instructions in the RV32I base instruction set with no stalling.
 
 ## Key Features
 
@@ -75,7 +75,7 @@ This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processo
 
 ---
 ### Known Issues / Future Improvements
-- Branch Prediction Enhancements: The current processor cannot predict branches. It is possible to integrate a branch predictor algorithm with advanced techniques (e.g., BHT, BTB).
+- Branch Prediction Enhancements: The current core cannot predict branches. It is possible to integrate a branch predictor algorithm with advanced techniques (e.g., BHT, BTB).
 
 Feel free to open issues or contribute enhancements!
 
