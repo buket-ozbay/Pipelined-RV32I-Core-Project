@@ -14,8 +14,7 @@ This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processo
 ## Key Features
 
 - **5-Stage Pipeline**: IF, ID, EX, MEM, WB  
-- **Hazard Unit**: Detects data and control hazards, generates flush or forwarding signals  
-- **Forwarding**: Minimizes load-use delays   
+- **Hazard Unit**: Detects data and control hazards, generates flush or forwarding signals     
 - **Complete RV32I Support**: Arithmetic, logic, load/store, jumps, branches  
 - **Modular Design**: Each pipeline stage, hazard logic, ALU, register file, and memory is in a separate module
 
