@@ -9,7 +9,7 @@ This project implements a **5-stage pipelined** RISC-V **RV32I** core, featuring
 
 ## Overview
 
-This project aims to implement a **5-stage pipelined** RISC-V **RV32I** core with robust **hazard handling**. The design correctly handles all integer instructions in the RV32I base instruction set with no stalling.
+This project aims to implement a **5-stage pipelined** RISC-V **RV32I** core with robust **hazard handling**. The design correctly handles instructions in the RV32I base instruction set without stalling.
 
 ## Key Features
 
