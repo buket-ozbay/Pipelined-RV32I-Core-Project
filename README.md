@@ -69,8 +69,9 @@ This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processo
 
 ### Simulation
 
-1. **Clone** or **download** the repository.  
-2. **Compile** and **elaborate** the RTL files plus the testbench.
+1. **Clone** or **download** the repository.
+2. Create a project, copy downloaded files. 
+3. **Compile** and **elaborate** the RTL files plus the testbench.
 
 ---
 ### Known Issues / Future Improvements
