@@ -1,0 +1,38 @@
+
+
+
+
+Register Write - Address:  1, Data: 00000064
+Register Write - Address:  1, Data: ffffff9c
+Register Write - Address:  2, Data: ffffffec
+Register Write - Address:  1, Data: 00000001
+Register Write - Address:  1, Data: 00000000
+Register Write - Address:  2, Data: 00000064
+Register Write - Address:  1, Data: 00000056
+Register Write - Address:  1, Data: 000000ff
+Register Write - Address:  1, Data: 00000064
+Register Write - Address:  1, Data: 00000c80
+Register Write - Address:  1, Data: 00000003
+Register Write - Address:  1, Data: ffffff9c
+Register Write - Address:  1, Data: fffffffc
+Register Write - Address:  1, Data: 00000064
+Register Write - Address:  1, Data: 00000003
+Register Write - Address:  1, Data: 00000064
+Register Write - Address:  2, Data: 000000c8
+Register Write - Address:  4, Data: 00000005
+Register Write - Address:  3, Data: 0000012c
+Register Write - Address:  3, Data: ffffff9c
+Register Write - Address:  3, Data: 00000064
+Register Write - Address:  3, Data: 00000c80
+Register Write - Address:  3, Data: 00000000
+Register Write - Address:  3, Data: 00000001
+Register Write - Address:  7, Data: fffffffb
+Register Write - Address:  3, Data: 00000001
+Register Write - Address:  3, Data: 00000000
+Register Write - Address:  3, Data: 00000061
+Register Write - Address:  3, Data: 00000003
+Register Write - Address:  1, Data: ffffff9c
+Register Write - Address:  1, Data: fffffffc
+Register Write - Address:  1, Data: 00000064
+Register Write - Address:  3, Data: 00000065
+Register Write - Address:  3, Data: 00000004
