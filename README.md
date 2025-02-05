@@ -1,6 +1,6 @@
 # Pipelined RV32I Processor Project
 
-This project implements a **5-stage pipelined** RISC-V **RV32I** processor, featuring hazard handling and (optionally) branch prediction.
+This project implements a **5-stage pipelined** RISC-V **RV32I** processor, featuring hazard handling.
 
 **Author**: Buket Özbay  
 **Email**: ozbayb21@itu.edu.tr
@@ -76,8 +76,8 @@ This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processo
 2. **Compile** and **elaborate** the RTL files plus the testbench.
 
 ---
-Author: Buket Özbay
-Email: ozbayb21@itu.edu.tr
+### Known Issues / Future Improvements
+- Branch Prediction Enhancements: The current processor cannot predict branches. It is possible to integrate a branch predictor algorithm with advanced techniques (e.g., BHT, BTB).
 
 Feel free to open issues or contribute enhancements!
 
