@@ -1,73 +1,83 @@
-# Pipelined-RV32I-Processor-Project
-This project implements a 5-stage pipelined RISC-V RV32I processor, featuring hazard handling and branch prediction.
+# Pipelined RV32I Processor Project
 
-Author: Buket Özbay
+This project implements a **5-stage pipelined** RISC-V **RV32I** processor, featuring hazard handling and (optionally) branch prediction.
 
-Overview
-This project implements a 5-stage pipelined RISC-V RV32I processor, featuring robust hazard handling and branch prediction. The design aims for correct behavior of all integer instructions in the RV32I base instruction set while minimizing pipeline stalls and flushes.
+**Author**: Buket Özbay  
+**Email**: ozbayb21@itu.edu.tr
 
-Key Features
-5-Stage Pipeline: IF, ID, EX, MEM, WB
-Hazard Unit: Detects data and control hazards, generates flush/stall or forwarding signals
-Forwarding: Minimizes load-use delays and reduces stalls
-Branch Prediction (Optional): Global or simple predictor to reduce control hazard penalties
-Complete RV32I Support: Handles base integer instructions (arithmetic, logic, load/store, jumps, branches, etc.)
-Modular Design: Separate modules for each pipeline stage, hazard logic, ALU, register file, and memory
-Architecture
-Fetch (IF)
+---
 
-Fetches the instruction from instruction memory
-Calculates PC + 4
-Outputs instruction and PC to the next stage
-Decode (ID)
+## Overview
 
-Decodes the instruction fields (opcode, funct3, funct7, rs1, rs2, rd, etc.)
-Reads registers from the register file
-Extends immediate (I-type, S-type, B-type, U-type, J-type)
-Sends control signals and operand data to the Execute stage
-Execute (EX)
+This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processor with robust **hazard handling**. The design correctly handles all integer instructions in the RV32I base instruction set while minimizing pipeline stalls and flushes. An optional **branch prediction** mechanism can be integrated to further reduce stall cycles on control hazards.
 
-ALU operations (add, sub, and, or, xor, shifts, comparisons for branch)
-Calculates branch targets, checks branch conditions
-Forwards data from MEM/WB if needed
-If branch is taken, signals the Hazard Unit to flush invalid instructions
-Memory (MEM)
+## Key Features
 
-Accesses data memory for load/store
-Applies byte/half/word alignment as needed by funct3
-Outputs data to the next stage for potential Write Back
-Write Back (WB)
+- **5-Stage Pipeline**: IF, ID, EX, MEM, WB  
+- **Hazard Unit**: Detects data and control hazards, generates flush/stall or forwarding signals  
+- **Forwarding**: Minimizes load-use delays and reduces stalls  
+- **Branch Prediction (Optional)**: Simple global or static predictor to reduce control hazard penalties  
+- **Complete RV32I Support**: Arithmetic, logic, load/store, jumps, branches  
+- **Modular Design**: Each pipeline stage, hazard logic, ALU, register file, and memory is in a separate module
 
-Selects the final result to write to the register file (ALU result, memory data, or other specialized results like PC+4)
-Hazard Handling
-Hazard Unit:
+## Architecture
 
-Monitors pipeline registers and control signals to detect:
-Data Hazards (e.g., read-after-write hazards)
-Control Hazards (branch/jump instructions)
-Generates stall and flush signals to prevent the pipeline from reading incorrect data
-Generates forwarding signals to route data from later pipeline stages (MEM, WB) back to the EX stage inputs, reducing stalls
-Forwarding Paths:
+1. **Fetch (IF)**  
+   - Fetches the instruction from instruction memory  
+   - Calculates `PC + 4`  
+   - Outputs instruction and PC to the next stage
 
-EX → EX: Bypass from ALU result of previous instruction
-MEM → EX: Bypass from memory stage for loads or previous ALU results
-WB → EX: Forward from final write-back stage if needed
-Branch Prediction (Optional)
-A simple global branch predictor or a static predictor can be implemented to reduce the branch penalty.
-On misprediction, the Hazard Unit flushes the instructions that were fetched under the wrong assumption.
+2. **Decode (ID)**  
+   - Decodes the instruction fields (opcode, funct3, funct7, rs1, rs2, rd, etc.)  
+   - Reads registers from the register file  
+   - Extends immediate (I-type, S-type, B-type, U-type, J-type)  
+   - Sends control signals and operand data to the Execute stage
 
-Getting Started
-Prerequisites
-A Verilog/SystemVerilog simulator (e.g. Vivado)
-(Optional) A hardware platform if synthesizing to FPGA (e.g. Xilinx)
-Simulation
-Clone or download the repository.
-Compile and elaborate the RTL files plus the testbench:
+3. **Execute (EX)**  
+   - ALU operations (add, sub, and, or, xor, shifts, comparisons for branch)  
+   - Calculates branch targets, checks branch conditions  
+   - Forwards data from MEM/WB if needed  
+   - If branch is taken, signals the Hazard Unit to flush invalid instructions
 
-Known Issues / Future Improvements
-Branch Prediction Enhancements: The current processor cannot predict branches. It is possible to integrate a branch predictor algorithm with advanced techniques (e.g., BHT, BTB).
+4. **Memory (MEM)**  
+   - Accesses data memory for load/store  
+   - Applies byte/half/word alignment as needed by `funct3`  
+   - Outputs data to the next stage for potential Write Back
 
-Contact
+5. **Write Back (WB)**  
+   - Selects the final result to write to the register file (ALU result, memory data, or other specialized results like `PC + 4`)
+
+### Hazard Handling
+
+- **Hazard Unit**  
+  - Monitors pipeline registers and control signals to detect:  
+    1. **Data Hazards** (read-after-write hazards)  
+    2. **Control Hazards** (branch/jump instructions)  
+  - Generates stall and flush signals to prevent reading incorrect data  
+  - Generates forwarding signals to route data from later pipeline stages (MEM, WB) back to the EX stage inputs, reducing stalls
+
+- **Forwarding Paths**  
+  - **EX → EX**: Bypass from ALU result of the previous instruction  
+  - **MEM → EX**: Bypass from the memory stage for loads or previous ALU results  
+  - **WB → EX**: Forward from the final write-back stage if needed
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- A Verilog/SystemVerilog simulator (e.g., **Vivado**)  
+- A hardware platform if synthesizing to an FPGA (e.g., **Xilinx**)
+
+### Simulation
+
+1. **Clone** or **download** the repository.  
+2. **Compile** and **elaborate** the RTL files plus the testbench.
+
+---
 Author: Buket Özbay
 Email: ozbayb21@itu.edu.tr
+
 Feel free to open issues or contribute enhancements!
+
