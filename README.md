@@ -9,14 +9,13 @@ This project implements a **5-stage pipelined** RISC-V **RV32I** processor, feat
 
 ## Overview
 
-This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processor with robust **hazard handling**. The design correctly handles all integer instructions in the RV32I base instruction set while minimizing pipeline stalls and flushes. An optional **branch prediction** mechanism can be integrated to further reduce stall cycles on control hazards.
+This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processor with robust **hazard handling**. The design correctly handles all integer instructions in the RV32I base instruction set with no stalling.
 
 ## Key Features
 
 - **5-Stage Pipeline**: IF, ID, EX, MEM, WB  
-- **Hazard Unit**: Detects data and control hazards, generates flush/stall or forwarding signals  
-- **Forwarding**: Minimizes load-use delays and reduces stalls  
-- **Branch Prediction (Optional)**: Simple global or static predictor to reduce control hazard penalties  
+- **Hazard Unit**: Detects data and control hazards, generates flush or forwarding signals  
+- **Forwarding**: Minimizes load-use delays   
 - **Complete RV32I Support**: Arithmetic, logic, load/store, jumps, branches  
 - **Modular Design**: Each pipeline stage, hazard logic, ALU, register file, and memory is in a separate module
 
@@ -53,11 +52,10 @@ This project aims to implement a **5-stage pipelined** RISC-V **RV32I** processo
   - Monitors pipeline registers and control signals to detect:  
     1. **Data Hazards** (read-after-write hazards)  
     2. **Control Hazards** (branch/jump instructions)  
-  - Generates stall and flush signals to prevent reading incorrect data  
+  - Generates flush signals to prevent reading incorrect data  
   - Generates forwarding signals to route data from later pipeline stages (MEM, WB) back to the EX stage inputs, reducing stalls
 
 - **Forwarding Paths**  
-  - **EX → EX**: Bypass from ALU result of the previous instruction  
   - **MEM → EX**: Bypass from the memory stage for loads or previous ALU results  
   - **WB → EX**: Forward from the final write-back stage if needed
 
