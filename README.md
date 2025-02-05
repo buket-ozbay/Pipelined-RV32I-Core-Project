@@ -10,7 +10,10 @@ This project implements a **5-stage pipelined** RISC-V **RV32I** core, featuring
 ## Overview
 
 This project aims to implement a **5-stage pipelined** RISC-V **RV32I** core with robust **hazard handling**. The design correctly handles instructions in the RV32I base instruction set without stalling. The commands that can be handled are listed below.
-![screenshot](https://github.com/buket-ozbay/Pipelined-RV32I-Core-Project/tree/main/instructions)
+<p align="center">
+  <img src="https://github.com/buket-ozbay/Pipelined-RV32I-Core-Project/tree/main/instructions" width="350" title="hover text">
+  <img src="your_relative_path_here_number_2_large_name" width="350" alt="accessibility text">
+</p>
 
 ## Key Features
 
